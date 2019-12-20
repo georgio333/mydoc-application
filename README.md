@@ -1,6 +1,9 @@
 # mydoc-application
 MyDoc - Application app (status check&amp;analyses)
 
+# api documentation
+ - see swagger.yaml
+ 
 # technologies
 - nodejs
 - angularjs
@@ -31,6 +34,8 @@ postcode: 10715
 
 # testing
 mocha framework
+
+
 
 
 
