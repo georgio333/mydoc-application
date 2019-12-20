@@ -21,7 +21,8 @@ MyDoc - Application Analyses: http://88.198.205.97/analyses/#/customers
 
 MyDoc - Application status check: http://88.198.205.97/status/#/
 
-#data for frontend: testing
+#data for frontend testing:
+
 applicationID: AZ111000
 postcode: 10714
 
