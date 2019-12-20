@@ -1,0 +1,63 @@
+{
+    "api":
+    {
+        "@": "API settings",
+        "ssl": true,
+        "checkCertificate": false,
+        "host": "88.198.205.97",
+        "port": 8080,
+        "basic_path": "/api/v1/mydoc/"
+    },
+    "employee":
+    {
+        "name_1": "Juri",
+        "name_2": "Mike"
+    },
+    "customer":
+    {
+        "appId_1": "1",
+        "appId_2": "2"
+    },
+    "date":
+    {
+        "date_1": "2019-12-19",
+        "date_2": "2019-12-20",
+        "date_3": "2019-12-21"
+    },
+    "appointment":
+    {
+        "change":
+        {
+            "street": "Detmolder Str.13",
+            "postcode": "10714",
+            "city": "Berlin"
+        },
+        "new":
+        {
+            "street": "Detmolder Str.13",
+            "appId": "B12345",
+            "postcode": "10700",
+            "city": "Berlin",
+            "employee": "Juri",
+            "status": "24",
+            "name": "Mila",
+            "surname": "Jowitch"
+        },
+        "new_2":
+        {
+            "street": "Detmolder Str.10",
+            "appId": "C12345",
+            "postcode": "10716",
+            "city": "Berlin",
+            "employee": "Eduard",
+            "status": "24",
+            "name": "Mydoc",
+            "surname": "Developer"
+        }
+    },
+    "status":
+    {
+        "delivered": 24,
+        "ordered": 22
+    }
+}

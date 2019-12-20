@@ -1,0 +1,150 @@
+swagger: '2.0'
+info:
+  description: MYDoc Application Service
+  version: 1.0.0
+  title: MYDOC
+  contact:
+    email: nativesoft.dev@gmail.com
+    
+paths:
+  /route/support/:  
+    get:
+      summary: return a list of employees
+      parameters:
+      - in: body
+      responses:
+        200:
+          description: data found
+        404:
+          description: not found
+          
+  /allClients/{employee}:  
+    get:
+      summary: return a list of all applications for employee
+      parameters:
+      - in:  path
+        name: employee
+        required: true
+        type: string
+      responses:
+        200:
+          description: data found
+        404:
+          description: not found
+          
+  /allClients/{employee}/{date}:  
+    get:
+      description: return a list of all applications for employee by date
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in:  path
+        name: employee
+        required: true
+        type: string
+     - in:  path
+        name: date
+        required: true
+        type: string
+      responses:
+        200:
+          description: data found
+        404:
+          description: not found
+          
+  /change/appointment/{id}/{date}:
+    put:
+      summary: updates an application
+      operationId: patchApplication
+      description: updates an existing application in the database
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+        - in: path
+            employee: employee
+            required: true
+            type: string
+         - in: path
+            id: id
+            required: true
+            type: string
+        - in: body
+            name: applicationPatch
+            description: information used to patch the application
+            schema:
+              $ref: '#/definitions/applicationPatch'
+            responses:
+            200:
+              description: account updated
+            400:
+              description: invalid input, object invalid
+          
+  /add/appointment/{date}:
+    post:
+      summary: updates an application
+      operationId: patchApplication
+      description: updates an existing application in the database
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        date: date
+        required: true
+        type: string
+      - in: body
+        name: applicationPost
+        description: information used to post the application
+        schema:
+          $ref: '#/definitions/applicationPost'
+      responses:
+        200:
+          description: added new application
+        400:
+          description: invalid input, object invalid
+                  
+          
+definitions: 
+  applicationPatch:
+    type: object
+    required:
+    - employee
+    properties:
+      city:
+        type: string
+      street:
+        type: string
+      postcode:
+        type: string
+
+  applicationPost:
+    type: object
+    required:
+    - name
+    - surname
+    - employee
+    properties:
+      city:
+        type: string
+      street:
+        type: string
+      postcode:
+        type: string
+      name:
+        type: string
+      surname:
+        type: string
+      appId:
+        type: string
+      employee:
+        type: string
+      status:
+        type: string
+      
+schemes:
+ - https

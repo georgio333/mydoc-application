@@ -1,0 +1,67 @@
+<div ng-app="mydoc" ng-controller="AngController">
+    <h1 class="text-center">Routing plan</h1>
+    <h5 class="text-center"><b>Hinweis: </b>Please choose the employee and date</h5>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-3">Employee:
+                                <select ng-model="selectedItem" ng-options="c.name for c in support" ng-change="getData()">
+                                </select>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="datepicker-1">
+                                    <date-picker ng-model="datepicker" placeholder="Date choose" callback="getData()" format="yyyy-MM-dd" autohide="true"></date-picker>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" ng-show="totalItems > 0">
+                            <div class="col-md-4">
+                                <h5>Anzahl der Kunden: {{ totalItems}} </h5>
+                            </div>
+                            <div class="col-xs-6 col-md-4 inforoute" id="directions" style="width: 20%; float:right; height: 100%; overflow: auto; padding: 0px 5p"></div>
+                            <table class="table table-hover table-bordered table-striped" bs-table>
+                                <thead>
+                                    <tr>
+                                        <th>Customer ID</th>
+                                        <th>Name&nbsp;</th>
+                                        <th>Address</th>
+                                        <th>Status&nbsp;</th>
+                                        <th>ApplicationID&nbsp;</th>
+                                        <th>Appointment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="client in clients">
+                                        <td><a href="#/termin/edit/{{client.number}}">{{client.number}}</a></td>
+                                        <td>{{client.name}} {{client.surname}}</td>
+                                        <td>{{client.street}} {{client.postCode}} {{client.city}}</td>
+                                        <td>{{client.appId}} </td>
+                                        <td ng-if="client.status==24">delivered</td>
+                                        <td ng-if="client.status==30">confirmed</td>
+                                        <td ng-if="client.status==21">ordered</td>
+                                        <td>{{client.termin}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn btn-default btn-sm pull-right" ng-click="directionCount(markers, map)">Route</button>
+                            <div id="map"> </div>
+                        </div>
+                        <div class="col-md-12" ng-show="totalItems == 0">
+                            <div class="col-md-12">
+                                <h4>Sorry.No found info...</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

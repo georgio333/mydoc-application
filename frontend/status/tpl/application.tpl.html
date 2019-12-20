@@ -1,0 +1,55 @@
+<h1 class="text-center">MyDoc - check application status</h1>
+<div ng-app="mydoc" ng-controller="CustomerController">
+    <div class="form-group">
+        <label for="custId">Application ID</label>
+        <input type="text" class="form-control" id="custId" placeholder="Your application ID" ng-model="custId" />
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="postCode">Postcode</label>
+        <input type="text" class="form-control" id="postCode" placeholder="Postcode" ng-model="postCode" />
+    </div>
+    <br/>
+    <td class="action-column">
+        <button type="button" class="btn btn-info btn-sm" ng-click="getInfo()">Search</button>
+    </td>
+    <hr>
+    <br/>
+    <div class="row">
+        <div class="col-md-12" ng-show="totalItems > 0">
+            <table class="table table-hover table-bordered" bs-table>
+                <thead>
+                    <tr>
+                        <th>Customer ID&nbsp;<a ng-click="predicate='number'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Name&nbsp;<a ng-click="predicate='name'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Surname&nbsp;<a ng-click="predicate='surname'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a> </th>
+                        <th>Postcode&nbsp;<a ng-click="predicate='postCode'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>City&nbsp;<a ng-click="predicate='city'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Notice&nbsp;<a ng-click="predicate='city'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Appointment&nbsp;<a ng-click="predicate='termin'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                       <th>Status&nbsp;<a ng-click="predicate='status'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                       <th>Last update&nbsp;<a ng-click="predicate='status'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cust in customer">
+                        <td>{{cust.customerId}}</td>
+                        <td>{{cust.name}}</td>
+                        <td>{{cust.surname}}</td>
+                        <td>{{cust.postCode}}</td>
+                        <td>{{cust.city}}</td>
+                        <td>{{cust.description}}</td>
+                        <td>{{cust.termin}}</td>
+                        <td>{{cust.status}}</td>
+                        <td>{{cust.changeDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12" ng-show="totalItems == 0">
+            <div class="col-md-12">
+                <h3>Sorry. No information found...</h3>
+            </div>
+        </div>
+    </div>
+</div>

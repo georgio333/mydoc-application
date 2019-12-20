@@ -1,0 +1,5 @@
+[2019-12-20 03:51:47.902] [INFO] Test - mydoc_01 | should be able to return a list of employess
+[2019-12-20 03:51:47.988] [INFO] Test - mydoc_02 | should able to return a list of employess for user by date
+[2019-12-20 03:51:48.064] [INFO] Test - mydoc_03 | should able to return a list of all applications for employee
+[2019-12-20 03:51:48.139] [INFO] Test - Passed: change appointment for customer - PATCH request - customerID:1
+[2019-12-20 03:51:48.233] [INFO] Test - Passed: add new application to database - POST request - date:2019-12-20

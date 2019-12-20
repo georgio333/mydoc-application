@@ -1,0 +1,34 @@
+<div ng-app="mydoc">
+    <div ng-controller="TerminController">
+        <h3 ng-repeat="t in person">Change appointment for - {{t.name + ' ' + t.surname}} (customerID: {{t.number}}) </h3>
+        <!--<h5 ng-repeat="t in person">Adresse: {{t.street + ' ' + t.city + ' ' +t.postCode}}</h5>   -->
+        <br/>
+        <div class="col-md-3" class="col-md-3">
+            <div class="datepicker-1"><label for="datepicker">Termin</label>
+                <date-picker ng-model="datepicker" placeholder="Datum auswählen" callback="getData()" format="yyyy-MM-dd" autohide="true"></date-picker>
+            </div>
+        </div>
+        <div class="col-md-3 form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" ng-model="city" />
+        </div>
+        <div class="col-md-3 form-group">
+            <label for="street">Postcode</label>
+            <input type="text" class="form-control" id="street" ng-model="postcode" />
+        </div>
+        <div class="col-md-3 form-group">
+            <label for="street">Street</label>
+            <input type="text" class="form-control" id="street" ng-model="street" />
+        </div>
+        <br/>
+        <br/>
+        <div class="form-group pull-right">
+            <td class="action-column">
+                <button type="button" class="btn btn-warning btn-sm" ng-click="Cancel()">Cancel</button>
+            </td>
+            <td class="action-column">
+                <button type="button" class="btn btn-info btn-sm" ng-click="Save(datepicker, custId)">Save</button>
+            </td>
+        </div>
+    </div>
+</div>

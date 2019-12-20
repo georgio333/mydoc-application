@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="mydoc">
+
+<head>
+    <title>MyDoc-Monitoring app</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico">
+
+    <script type="text/javascript" src="dist/js/proj/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="dist/js/proj/jquery.js"></script>
+    <script type="text/javascript" src="dist/js/proj/underscore.js"></script>
+    <script type="text/javascript" src="dist/js/proj/angular.js"></script>
+    <script type="text/javascript" src="dist/js/proj/angular-route.js"></script>
+    <script type="text/javascript" src="dist/js/proj/datepicker.js"></script>
+    <script type="text/javascript" src="dist/js/proj/moment.js"></script>
+    <script type="text/javascript" src="dist/js/proj/highstock.js"></script>
+    <script type="text/javascript" src="dist/js/proj/exporting.js"></script>
+    <script type="text/javascript" src="dist/js/proj/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="dist/js/proj/toaster.min.js"></script>
+    <script type="text/javascript" src="dist/js/proj/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="dist/js/proj/bootstrap.min.js"></script>
+    <script type="text/javascript" src="dist/js/proj/jquery.min.js"></script>
+    <script type="text/javascript" src="dist/js/proj/angular-base64.js"></script>
+    <script type="text/javascript" src="dist/js/proj/ng-flow-standalone.min.js"></script>
+    <script type="text/javascript" src="dist/js/proj/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="dist/js/proj/angular.js"></script>
+    <script type="text/javascript" src="dist/js/proj/angular-route.js"></script>
+    <script type="text/javascript" src="dist/js/proj/jquery.js"></script>
+    <script type="text/javascript" src="dist/js/proj/underscore.js"></script>
+    <script type="text/javascript" src="dist/js/proj/moment.js"></script>
+    <script type="text/javascript" src="dist/js/proj/angular-ui.js"></script>
+    <script type="text/javascript" src="dist/js/proj/ui-bootstrap-tpls.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="dist/js/script.js"></script>
+    
+    <style>
+        .angular-google-map-container {
+    height: 400px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#/">Map</a></li>
+                <li><a href="#/customers">Applications</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-3 col-md-10 col-md-8 main" ng-view></div>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyAp-OQWcE2eG2Wv2CvsQTfwYmFEhUdgwFc"></script> 
+    <script type="text/javascript" src="dist/js/angular-google-maps.js"></script>
+    <script type="text/javascript" src="dist/js/proj/ng-map.js"></script>
+</body>
+</html>

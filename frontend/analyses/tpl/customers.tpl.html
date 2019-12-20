@@ -1,0 +1,94 @@
+<!--<a href="#/datum" class="btn btn-warning btn-sm pull-left">Datum</a>-->
+<h1 class="text-center">MyDoc - Applications of employee</h1>
+<h5 class="text-center"><b>Notice: </b>The applications with such kind of type will be shown here: delivered & confirmed</h5>
+<div ng-app="mydoc" ng-controller="AllClientsController">
+    <br/>
+        <div class="row">
+            <div class="col-md-3">Employee name:
+                <select ng-model="selectedItem" ng-options="c.name for c in support" ng-change="getData()">
+                </select>
+            </div>
+            <br/>
+        </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-2">Page size:
+            <select ng-model="entryLimit" class="form-control">
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+                <option>200</option>
+            </select>
+        </div>
+        <div class="col-md-3">Filter:
+            <input type="text" ng-model="search" ng-change="filter()" placeholder="Seach..." class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <h5>Found {{ filtered.length }} of {{ totalItems}} applications</h5>
+        </div>
+    </div>
+    <div class="text-right">
+        <span><span ng-if="recentLoading">loading</span>Page {{(currentPage )}} </span>
+        <button class="btn btn-primary btn-xs" ng-class="{ 'disabled': currentPage <= 0 }" ng-click="setPage(currentPage - 1)"><span class="glyphicon glyphicon-chevron-left"></span></button>
+        <button class="btn btn-primary btn-xs" ng-click="setPage(currentPage + 1)"><span class="glyphicon glyphicon-chevron-right"></span></button>
+    </div>
+    <div class="col-md-12" ng-show="filteredItems > 0">
+        <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
+    </div>
+    <br/>
+    <div ng-show="filteredItems != 0" class="row">
+        <div class="col-md-12" ng-show="filteredItems > 0">
+            <table class="table table-hover table-bordered export-table" bs-table>
+                <thead>
+                    <tr>
+                        <th>Edit&nbsp;<a ng-click="predicate='number'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Customer ID&nbsp;<a ng-click="predicate='number'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Name&nbsp;<a ng-click="predicate='name'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Surname&nbsp;<a ng-click="predicate='surname'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a> </th>
+                        <th>Street&nbsp;<a ng-click="predicate='streer'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Postcode&nbsp;<a ng-click="predicate='postCode'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>City&nbsp;<a ng-click="predicate='city'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Status&nbsp;<a ng-click="predicate='status'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Appointment&nbsp;<a ng-click="predicate='termin'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>ApplicationID&nbsp;<a ng-click="predicate='appId'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th>Employee&nbsp;<a ng-click="predicate='techniker'; reverse=!reverse"><i class="glyphicon glyphicon-sort"></i></a></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="custm in filtered = (customers | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                         <td class="action-column">
+                            <button type="button" class="btn btn-info btn-sm" ng-click="#/termin/edit/{{custm.number}}">edit</button>
+                        </td>
+ <td><a href="#/termin/edit/{{custm.number}}">{{custm.number}}</a></td>
+                        <td>{{custm.name}}</td>
+                        <td>{{custm.surname}}</td>
+                        <td>{{custm.street}}</td>
+                        <td>{{custm.postCode}}</td>
+                        <td>{{custm.city}}</td>
+                        <td>{{custm.status}}</td>
+                        <td>{{custm.termin}}</td>
+                        <td>{{custm.appId}} </td>
+                        <td>{{custm.employee}}</td>
+                        <span editable-select="cust.termin" e-name="termin" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups">
+                         {{ showGroup(user) }}
+                        </span>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12" ng-show="filteredItems == 0">
+            <div class="col-md-12">
+                <h4>Sorry. No found data...</h4>
+            </div>
+        </div>
+
+          <div class="row">
+            <div class="col-md-right-6">
+                  
+            </div>
+        </div>
+    </div>
+</div>
